@@ -2,6 +2,14 @@
 
 This is a sample project to work out a basic MLFlow to be used for local experimentation and serving.
 
+## TODO:
+
+Using MLFLow:
+
+* [ ] Store a model file
+* [ ] Serve a model file as a docker image
+* [ ] Deploy a docker model to sagemaker
+
 ## Conda Environment
 
 Remember to keep the `conda.yaml` updated with your latest development environment.
@@ -34,3 +42,4 @@ Use the `MLproject` definition to keep things consistent by running:
 ```
 mlflow run .
 ```
+
