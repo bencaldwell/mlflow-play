@@ -13,6 +13,20 @@ Instead use this to update `conda.yaml`
 conda env export -f conda.yaml
 ```
 
+## Preparing the data
+
+Use dvc to prepare the data.
+
+```
+dvc repro
+```
+
+or if the data is prepared and in remote storage
+
+```
+dvc pull
+```
+
 ## Running the experiment
 
 Use the `MLproject` definition to keep things consistent by running:

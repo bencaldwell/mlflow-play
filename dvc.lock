@@ -2,9 +2,9 @@ get_raw:
   cmd: python src/get_raw.py --out data/raw/iris.csv
   deps:
   - path: src/get_raw.py
-    md5: 9d5aabeb8ab81783b37a4fe5d650d0a2
-    size: 720
+    md5: 2630bea44c3308d35d23ea03b5d9bdac
+    size: 763
   outs:
   - path: data/raw/iris.csv
-    md5: fee51fa9822d3e37072dc93d173f6c4a
-    size: 3227
+    md5: 37470de29660b0e8e4bff8c40a6408f1
+    size: 2927

@@ -4,6 +4,6 @@ conda_env: conda.yaml
 entry_points:
     main:
         parameters:
-            dummy: {type: float, default: 1.0}
-        command: "python src/train.py --dummy={dummy}"
+            n_components: {type: int, default: 3}
+        command: "python src/train.py --n_components={n_components} --input data/raw/iris.csv"
 

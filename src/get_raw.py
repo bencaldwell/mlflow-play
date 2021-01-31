@@ -24,6 +24,7 @@ def main():
         data=np.c_[(iris['target'], iris['data'])],
         columns=['label'] + iris['feature_names']
     )
+    df['label'] = df['label'].astype(int)
 
     df.to_csv(args.out, index=False)
 
