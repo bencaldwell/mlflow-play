@@ -1,0 +1,9 @@
+name: mlflow_play
+conda_env: conda.yaml
+
+entry_points:
+    main:
+        parameters:
+            dummy: {type: float, default: 1.0}
+        command: "python src/train.py --dummy={dummy}"
+
