@@ -1,0 +1,7 @@
+stages:
+  get_raw:
+    cmd: python src/get_raw.py --out data/raw/iris.csv
+    deps:
+      - src/get_raw.py
+    outs:
+      - data/raw/iris.csv
