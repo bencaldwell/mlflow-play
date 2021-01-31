@@ -1,6 +1,6 @@
 # MLFLOW PLAY
 
-This is a sample project to work out a basic MLFlow to be used for local experimentation and serving.
+This is a sample project to work out a basic workflow using DVC and MLFlow to be used for local experimentation and serving.
 
 ## TODO:
 
