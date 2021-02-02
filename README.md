@@ -6,7 +6,7 @@ This is a sample project to work out a basic workflow using DVC and MLFlow to be
 
 Using MLFLow:
 
-* [ ] Store a model file
+* [X] Store a model file - done for a simple sklearn RF classifier
 * [ ] Serve a model file as a docker image
 * [ ] Deploy a docker model to sagemaker
 
