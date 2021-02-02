@@ -10,6 +10,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from sklearn import decomposition
 from sklearn import datasets
 import pandas as pd
+from pathlib import Path
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train hyperparams.')
@@ -22,10 +23,6 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     print(args)
-
-    for arg in vars(args):   
-        # Log a parameter (key-value pair)
-        log_param(arg, getattr(args, arg))
 
     # delete and remake the artifact dir
     shutil.rmtree('outputs')

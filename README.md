@@ -40,6 +40,6 @@ dvc pull
 Use the `MLproject` definition to keep things consistent by running:
 
 ```
-mlflow run .
+mlflow run -e pca --experiment-name "my experiment" .
 ```
 
