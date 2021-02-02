@@ -2,13 +2,11 @@ import os
 import shutil
 import argparse
 from mlflow import log_metric, log_param, log_artifacts
-from numpy import testing
-
+import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import plot_confusion_matrix
 import mlflow.sklearn
 
 MODEL_NAME = 'sklearn-rf'
@@ -44,9 +42,10 @@ if __name__ == "__main__":
 
     model_dir = os.path.join('outputs', 'model')
     mlflow.sklearn.save_model(clf, model_dir)
-        
-    # save the plot as an artifact
-    # fig.savefig( "outputs/plot.png")
+
+    # save a confusion matrix plot as an artifact    
+    plot_confusion_matrix(clf, X_test, y_test)
+    plt.savefig( "outputs/cfx.png")
     
     # log the artifacts
     log_artifacts("outputs")
