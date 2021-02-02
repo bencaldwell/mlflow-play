@@ -2,6 +2,11 @@ name: mlflow_play
 conda_env: conda.yaml
 
 entry_points:
+    main:
+        parameters:
+            input: {type: str, default: data/raw/iris.csv}
+            max_depth: {type: int, default: 2}
+        command: "python src/rf_train.py --max_depth={max_depth} --input {input}"
     pca:
         parameters:
             input: {type: str, default: data/raw/iris.csv}
