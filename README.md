@@ -43,3 +43,16 @@ Use the `MLproject` definition to keep things consistent by running:
 mlflow run -e pca --experiment-name "my experiment" .
 ```
 
+## Serving the model
+
+Get the model folder from the MLFlow run and serve with e.g.
+
+```
+mlflow models serve -m ./mlruns/0/a46ecc1db20c4fd19165340b3ab408aa/artifacts/model
+```
+
+The model is then available as a rest endpoint and it can be tested using a query e.g.
+
+```
+invoke-webrequest -Uri "http://127.0.0.1:5000/invocations" -Headers @{'Content-Type'='application/json'} -Method POST -Body '{"data":[[4.9,3.0,1.4,0.2]]}'
+```
