@@ -5,8 +5,9 @@ entry_points:
     main:
         parameters:
             input: {type: str, default: data/raw/iris.csv}
+            test_size: {type: float, default: 0.2}
             max_depth: {type: int, default: 2}
-        command: "python src/rf_train.py --max_depth={max_depth} --input {input}"
+        command: "python src/rf_train.py --max_depth={max_depth}  --test_size {test_size} --input {input}"
     pca:
         parameters:
             input: {type: str, default: data/raw/iris.csv}
