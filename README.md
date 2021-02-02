@@ -7,7 +7,9 @@ This is a sample project to work out a basic workflow using DVC and MLFlow to be
 Using MLFLow:
 
 * [X] Store a model file - done for a simple sklearn RF classifier
+* [X] Serve a model file
 * [ ] Serve a model file as a docker image
+* [ ] Deploy a docker model on another onprem
 * [ ] Deploy a docker model to sagemaker
 
 ## Conda Environment
