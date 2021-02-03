@@ -58,3 +58,9 @@ The model is then available as a rest endpoint and it can be tested using a quer
 ```
 invoke-webrequest -Uri "http://127.0.0.1:5000/invocations" -Headers @{'Content-Type'='application/json'} -Method POST -Body '{"data":[[4.9,3.0,1.4,0.2]]}'
 ```
+
+Or for models that include a signature (preferred):
+
+```
+invoke-webrequest -Uri "http://127.0.0.1:8080/invocations" -Headers @{'Content-Type'='application/json; format=pandas-records'} -Method POST -Body '[{"sepal length (cm)": 4.9, "sepal width (cm)": 3.0, "petal length (cm)": 1.4, "petal width (cm)": 0.2}]'
+```

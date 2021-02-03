@@ -2,6 +2,7 @@ import os
 import shutil
 import argparse
 from mlflow import log_metric, log_param, log_artifacts
+from mlflow.models import infer_signature
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -29,11 +30,11 @@ if __name__ == "__main__":
     os.makedirs("outputs")
 
     df = pd.read_csv(args.input)
-    y = df.pop('label')
+    y = df.pop('label').astype(float)
     X = df
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=args.test_size)
-    
+    print(y_train.dtypes)
     clf = RandomForestClassifier(max_depth=2, random_state=0)
     clf.fit(X_train, y_train)
 
@@ -41,11 +42,12 @@ if __name__ == "__main__":
     log_metric("score", clf.score(X_test, y_test))
 
     model_dir = os.path.join('outputs', 'model')
-    mlflow.sklearn.save_model(clf, model_dir)
+    signature = infer_signature(X_train, clf.predict(X_train))
+    mlflow.sklearn.save_model(clf, model_dir, signature=signature)
 
     # save a confusion matrix plot as an artifact    
     plot_confusion_matrix(clf, X_test, y_test)
-    plt.savefig( "outputs/cfx.png")
+    plt.savefig("outputs/cfx.png")
     
     # log the artifacts
     log_artifacts("outputs")
